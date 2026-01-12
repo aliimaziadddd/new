@@ -881,3 +881,34 @@ section:not(:last-child)::after {
     transform: scale(0.95);
   }
 }
+
+/* FORCE MOBILE HEADER RESET */
+@media (max-width: 768px) {
+
+  header,
+  .header .container {
+    position: relative !important;
+  }
+
+  .header .container {
+    display: grid !important;
+    grid-template-columns: auto 1fr auto auto !important;
+    align-items: center !important;
+    gap: 14px !important;
+  }
+
+  .header-search {
+    position: relative !important;
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  .cart-icon,
+  .bag-icon,
+  .menu-toggle {
+    position: relative !important;
+    right: auto !important;
+    left: auto !important;
+    margin: 0 !important;
+  }
+}
