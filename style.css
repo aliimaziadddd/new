@@ -912,3 +912,47 @@ section:not(:last-child)::after {
     margin: 0 !important;
   }
 }
+
+/* ===== MOBILE HEADER HARD FIX ===== */
+@media (max-width: 768px) {
+
+  .header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 9999 !important;
+  }
+
+  .header .container {
+    display: grid !important;
+    grid-template-columns: auto 1fr auto auto !important;
+    align-items: center !important;
+    gap: 12px !important;
+    padding: 10px 14px !important;
+  }
+
+  .logo-mobile {
+    justify-self: start !important;
+  }
+
+  .header-search {
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  .cart-icon,
+  .bag-icon {
+    justify-self: end !important;
+    margin: 0 !important;
+  }
+
+  .menu-toggle-label {
+    justify-self: end !important;
+    margin-left: 6px !important;
+  }
+
+  .hero {
+    padding-top: 90px !important;
+  }
+}
