@@ -739,9 +739,16 @@ section:not(:last-child)::after {
     display: none;
   }
 
+  header .header-inner {
+    display: grid !important;
+    grid-template-columns: auto 1fr auto auto;
+    align-items: center;
+    gap: 12px;
+  }
+
   .header-search {
     display: block;
-    max-width: 70%;
+    width: 100%;
   }
 
   .header-actions .search,
