@@ -956,3 +956,40 @@ section:not(:last-child)::after {
     padding-top: 90px !important;
   }
 }
+
+/* FORCE MOBILE SEARCH REALIGN */
+@media (max-width: 768px) {
+
+  .header,
+  .header .container {
+    position: relative !important;
+  }
+
+  .header .container {
+    display: grid !important;
+    grid-template-columns: auto minmax(0,1fr) auto auto !important;
+    align-items: center !important;
+    gap: 12px !important;
+  }
+
+  /* MOVE SEARCH LEFT */
+  .header-search {
+    justify-self: start !important;
+    margin-left: 4px !important;
+    margin-right: 12px !important;
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  .header-search input {
+    padding-left: 14px !important;
+  }
+
+  /* LOCK BAG & MENU ON RIGHT */
+  .bag-icon,
+  .cart-icon,
+  .menu-toggle-label {
+    justify-self: end !important;
+    margin: 0 !important;
+  }
+}
