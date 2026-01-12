@@ -741,11 +741,21 @@ section:not(:last-child)::after {
 
   .header-search {
     display: block;
+    max-width: 70%;
   }
 
   .header-actions .search,
   .header-actions .login {
     display: none;
+  }
+
+  .header-actions {
+    gap: 14px;
+  }
+
+  .cart-icon,
+  .bag-icon {
+    padding: 6px;
   }
 
   .menu-toggle-label {
