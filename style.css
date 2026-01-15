@@ -473,11 +473,18 @@ section:not(:last-child)::after {
 }
 
 .brand-item {
-  font-size: 18px;
-  color: var(--text);
-  white-space: nowrap;
+  min-width: 200px;
+  height: 90px;
+  flex: 0 0 auto;
   scroll-snap-align: center;
-  font-weight: 500;
+  background: linear-gradient(145deg, #0b0b0c, #121212);
+  border-radius: 14px;
+  border: 1px solid rgba(200,164,93,0.35);
+  box-shadow: 0 0 35px rgba(200,164,93,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
 }
 
 /* Shop Category */
@@ -776,6 +783,25 @@ section:not(:last-child)::after {
 
   .brands-list {
     padding: 0 60px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .brands-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .chevron {
+    display: none;
+  }
+
+  .brand-item {
+    padding: 10px 20px;
+    background: rgba(18, 18, 18, 0.5);
+    border-radius: 5px;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .category-cards {
@@ -991,5 +1017,358 @@ section:not(:last-child)::after {
   .menu-toggle-label {
     justify-self: end !important;
     margin: 0 !important;
+  }
+}
+
+@media (max-width: 768px) {
+
+  /* Convert brands container into swipe rail */
+  .brands-list {
+    display: flex !important;
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory !important;
+    gap: 16px !important;
+    padding: 12px 16px !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .brands-list::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  /* Each brand becomes a swipe card */
+  .brands-list > * {
+    flex: 0 0 auto !important;
+    min-width: 140px !important;
+    text-align: center !important;
+    scroll-snap-align: center !important;
+    padding: 14px 12px !important;
+    border-radius: 14px !important;
+    background: rgba(255,255,255,0.03) !important;
+    border: 1px solid rgba(212,175,55,0.25) !important;
+  }
+
+  /* Hide desktop arrows on mobile */
+  .brands-prev,
+  .brands-next,
+  .brand-arrow {
+    display: none !important;
+  }
+}
+
+.brand-item img {
+  max-height: 55px;
+  max-width: 85%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 12px rgba(200,164,93,0.6));
+}
+
+/* FORCE MOBILE BRAND CARD SYNC */
+@media (max-width: 768px) {
+
+  /* Force same container */
+  .brands-list {
+    display: flex !important;
+    gap: 16px !important;
+    padding: 12px 20px !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  /* Hide scrollbar */
+  .brands-list::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  /* Each brand card = desktop style */
+  .brand-item {
+    min-width: 200px !important;
+    height: 90px !important;
+    flex: 0 0 auto !important;
+    scroll-snap-align: center !important;
+    background: linear-gradient(145deg, #0b0b0c, #121212) !important;
+    border-radius: 14px !important;
+    border: 1px solid rgba(200,164,93,0.35) !important;
+    box-shadow: 0 0 35px rgba(200,164,93,0.25) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 12px !important;
+  }
+
+  .brand-item img {
+    max-height: 55px !important;
+    max-width: 85% !important;
+    object-fit: contain !important;
+    filter: drop-shadow(0 0 12px rgba(200,164,93,0.6)) !important;
+  }
+
+  /* Remove pill styling if any exists */
+  .brand-item::before,
+  .brand-item::after {
+    display: none !important;
+  }
+
+  /* Hide arrows on mobile */
+  .brands-prev,
+  .brands-next {
+    display: none !important;
+  }
+}
+
+/* BRAND IMAGE FULL CARD FIX */
+.brand-item {
+  position: relative;
+  overflow: hidden;
+  padding: 0 !important;
+}
+
+.brand-item img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+  border-radius: inherit;
+}
+
+/* Ensure cards have a fixed luxurious size */
+.brand-item {
+  min-width: 240px;
+  height: 120px;
+}
+
+/* Mobile swipe rail */
+@media (max-width: 768px) {
+  .brands-list {
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 16px;
+    padding: 10px 20px;
+  }
+
+  .brand-item {
+    scroll-snap-align: center;
+    flex: 0 0 auto;
+    min-width: 260px;
+    height: 130px;
+  }
+
+  .brands-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Force full-size background images without inner boxes */
+  .brand-item {
+    position: relative !important;
+    padding: 0 !important;
+  }
+
+  .brand-item img {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    border-radius: inherit !important;
+  }
+}
+
+/* =====================================================
+   FORCE MOBILE TOP BRANDS — FULL SIZE IMAGE CARDS
+   (Luxury swipe carousel)
+===================================================== */
+
+@media (max-width: 768px) {
+
+  .brands-list {
+    display: flex !important;
+    gap: 18px !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    padding: 10px 16px !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .brand-item {
+    position: relative !important;
+    min-width: 260px !important;
+    height: 130px !important;
+    border-radius: 18px !important;
+    overflow: hidden !important;
+    flex-shrink: 0 !important;
+    scroll-snap-align: center !important;
+    background: #000 !important;
+
+    box-shadow:
+      0 0 0 1px rgba(212,175,55,0.45),
+      0 0 35px rgba(212,175,55,0.35) !important;
+  }
+
+  /* REMOVE all inner logo boxes / containers */
+  .brand-item > *,
+  .brand-item div,
+  .brand-item span {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Make brand logos full background */
+  .brand-item img {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    z-index: 1 !important;
+    filter: brightness(0.85) contrast(1.1) !important;
+  }
+
+  /* Luxury dark-gold overlay */
+  .brand-item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.15),
+      rgba(0,0,0,0.75)
+    );
+    z-index: 2;
+    pointer-events: none;
+  }
+}
+
+/* =====================================================
+   FIX: Mobile brand cards must keep size
+   Logos must scale to fill the card
+===================================================== */
+
+@media (max-width: 768px) {
+
+  /* Keep cards at luxury size */
+  .brand-item {
+    min-width: 220px !important;
+    height: 110px !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+    position: relative !important;
+    background: #000 !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Kill all inner boxes */
+  .brand-item > div,
+  .brand-item span {
+    display: none !important;
+  }
+
+  /* Force logo to fill card */
+  .brand-item img {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;   /* no cropping */
+    object-position: center !important;
+    padding: 14px !important;         /* luxury spacing */
+    z-index: 2 !important;
+  }
+
+  /* Soft dark overlay for luxury */
+  .brand-item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle at center,
+      rgba(0,0,0,0.25),
+      rgba(0,0,0,0.75)
+    );
+    z-index: 1;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .brands-list {
+    display: flex !important;
+    gap: 16px !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding: 20px !important;
+  }
+
+  .brand-item {
+    flex: 0 0 80% !important;
+    height: 140px !important;
+    border-radius: 18px !important;
+    overflow: hidden !important;
+    scroll-snap-align: center !important;
+    background: black !important;
+    box-shadow: 0 0 25px rgba(200,164,93,0.6) !important;
+  }
+
+  .brand-item img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+  }
+
+}
+
+.brand-item {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+.brand-item img {
+  width: 220px;
+  height: auto;
+  max-height: 80px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 25px rgba(212,175,55,0.5));
+  transition: transform 0.3s ease;
+}
+
+.brand-item img:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .brands-list {
+    display: flex;
+    gap: 28px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 20px 20px 30px;
+  }
+
+  .brand-item {
+    flex: 0 0 auto;
+    scroll-snap-align: center;
+  }
+
+  .brand-item img {
+    width: 180px;
+    max-height: 70px;
+  }
+
+  .brands-list::-webkit-scrollbar {
+    display: none;
   }
 }
