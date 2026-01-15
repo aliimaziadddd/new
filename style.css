@@ -32,7 +32,8 @@ h1, h2, h3 {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
-}
+  }
+
 
 section {
   padding: 60px 0;
@@ -415,11 +416,24 @@ section:not(:last-child)::after {
 
 /* Top Brands */
 .top-brands {
-  background: var(--panel);
+  background: var(--panel), radial-gradient(circle at 2px 2px, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
   padding: 40px 0;
   border-top: 2px solid var(--gold-dark);
   border-bottom: 2px solid var(--gold-dark);
   position: relative;
+}
+
+/* Shop by Category */
+.shop-category {
+  background: var(--bg), radial-gradient(circle at 2px 2px, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Weekly Drop */
+.weekly-drop {
+  background: var(--bg), radial-gradient(circle at 2px 2px, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
 }
 
 .brands-container {
@@ -1373,6 +1387,185 @@ section:not(:last-child)::after {
   }
 }
 
+/* Section Divider - Luxury Style */
+.section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 60px 0 30px;
+  position: relative;
+}
+
+.section-divider::before {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+  margin-right: 10px;
+}
+
+.section-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to left, transparent, var(--gold), transparent);
+  margin-left: 10px;
+}
+
+.section-divider span {
+  font-family: "Playfair Display", serif;
+  font-size: 42px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--gold);
+  position: relative;
+  background: linear-gradient(45deg, var(--gold), var(--gold-soft));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 10px rgba(200, 164, 93, 0.5);
+}
+
+.section-divider span::before {
+  content: '◇';
+  position: absolute;
+  left: -25px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gold);
+  font-size: 18px;
+}
+
+.section-divider span::after {
+  content: '◇';
+  position: absolute;
+  right: -25px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gold);
+  font-size: 18px;
+}
+
+@media (max-width: 768px) {
+  .section-divider span {
+    font-size: 26px;
+  }
+
+  .section-divider span::before,
+  .section-divider span::after {
+    left: -20px;
+    right: -20px;
+    font-size: 14px;
+  }
+}
+
+.lux-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  margin: 60px 0 30px;
+}
+
+.lux-title h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 42px;
+  color: #C8A45D;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.lux-title span {
+  height: 1px;
+  width: 140px;
+  background: linear-gradient(to right, transparent, #C8A45D, transparent);
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .lux-title h2 {
+    font-size: 26px;
+  }
+
+  .lux-title span {
+    width: 60px;
+  }
+}
+
+/* Luxury dotted black texture backgrounds for specified sections */
+.top-brands {
+  background:
+    radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 1px),
+    radial-gradient(circle at 10px 10px, rgba(255,255,255,0.01) 1px, transparent 1px),
+    var(--bg) !important;
+  background-size: 20px 20px, 40px 40px !important;
+}
+
+.shop-category {
+  background:
+    radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 1px),
+    radial-gradient(circle at 10px 10px, rgba(255,255,255,0.01) 1px, transparent 1px),
+    var(--bg) !important;
+  background-size: 20px 20px, 40px 40px !important;
+}
+
+.weekly-drop {
+  background:
+    radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 1px),
+    radial-gradient(circle at 10px 10px, rgba(255,255,255,0.01) 1px, transparent 1px),
+    var(--bg) !important;
+  background-size: 20px 20px, 40px 40px !important;
+}
+
+/* Luxury dotted texture backgrounds */
+.top-brands {
+  background:
+    radial-gradient(circle at 1px 1px, rgba(255,215,150,0.07) 1px, transparent 1.5px),
+    radial-gradient(circle at 10px 10px, rgba(255,215,150,0.04) 1px, transparent 2px),
+    linear-gradient(to bottom, #0b0b0c, #0b0b0c);
+  background-size: 14px 14px, 40px 40px, 100% 100%;
+  background-blend-mode: overlay;
+  position: relative;
+  z-index: 1;
+}
+
+.shop-category {
+  background:
+    radial-gradient(circle at 1px 1px, rgba(255,215,150,0.07) 1px, transparent 1.5px),
+    radial-gradient(circle at 10px 10px, rgba(255,215,150,0.04) 1px, transparent 2px),
+    linear-gradient(to bottom, #0b0b0c, #0b0b0c);
+  background-size: 14px 14px, 40px 40px, 100% 100%;
+  background-blend-mode: overlay;
+  position: relative;
+  z-index: 1;
+}
+
+.weekly-drop {
+  background:
+    radial-gradient(circle at 1px 1px, rgba(255,215,150,0.07) 1px, transparent 1.5px),
+    radial-gradient(circle at 10px 10px, rgba(255,215,150,0.04) 1px, transparent 2px),
+    linear-gradient(to bottom, #0b0b0c, #0b0b0c);
+  background-size: 14px 14px, 40px 40px, 100% 100%;
+  background-blend-mode: overlay;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .brands-list {
+    min-height: 160px !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  .brand-item {
+    min-height: 140px !important;
+    height: 140px !important;
+  }
+}
+
 @media (max-width: 768px) {
 
   /* Mobile swipe rail */
@@ -1442,5 +1635,101 @@ section:not(:last-child)::after {
     object-fit: contain !important;
     scroll-snap-align: center !important;
     flex-shrink: 0 !important;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .brands-list {
+    display: flex !important;
+    gap: 28px !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding: 10px 24px 30px !important;
+  }
+
+  .brands-list::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .brand-item {
+    flex: 0 0 80% !important;
+    max-width: 80% !important;
+    height: auto !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    scroll-snap-align: center !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .brand-item img {
+    width: 100% !important;
+    max-width: 320px !important;
+    height: auto !important;
+    object-fit: contain !important;
+    display: block !important;
+  }
+}
+
+.brand-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.brand-item img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  max-width: none !important;
+  max-height: none !important;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .brand-item {
+    height: 120px;
+  }
+}
+
+@media (max-width: 768px) {
+  .brands-list {
+    display: flex;
+    overflow-x: auto;
+    gap: 18px;
+    padding: 20px 16px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .brand-item {
+    flex: 0 0 80vw;
+    height: 140px;
+    border-radius: 14px;
+    scroll-snap-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .brand-item img {
+    width: 85% !important;
+    height: auto !important;
+    max-width: none !important;
+    max-height: none !important;
+    object-fit: contain;
+    transform: none !important;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .brands-list::-webkit-scrollbar {
+    display: none;
   }
 }
