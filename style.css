@@ -1418,3 +1418,29 @@ section:not(:last-child)::after {
   }
 
 }
+
+@media (max-width: 768px) {
+
+  /* Mobile swipe container */
+  .brands-list {
+    display: flex !important;
+    gap: 24px !important;
+    padding: 24px 12px !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .brands-list::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  /* Make each brand image a visible card */
+  .brands-list img {
+    width: 220px !important;
+    height: 120px !important;
+    object-fit: contain !important;
+    scroll-snap-align: center !important;
+    flex-shrink: 0 !important;
+  }
+}
