@@ -18,19 +18,36 @@ if (rightChevron && brandsList) {
 // Set active class on Home link
 document.querySelector('.nav-list a[href="#home"]').classList.add('active');
 
-// Hamburger menu toggle
-const menuToggle = document.getElementById('menu-toggle');
-const menuOverlay = document.querySelector('.menu-overlay');
-const body = document.body;
 
-if (menuToggle && menuOverlay) {
-    menuToggle.addEventListener('change', () => {
-        if (menuToggle.checked) {
-            menuOverlay.classList.add('show');
-            body.classList.add('no-scroll');
-        } else {
-            menuOverlay.classList.remove('show');
-            body.classList.remove('no-scroll');
-        }
+
+// Header scroll behavior
+window.addEventListener('scroll', () => {
+    const header = document.querySelector('.header');
+    if (window.scrollY >= 40) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const toggle = document.getElementById("menuToggle");
+  const menu = document.getElementById("mobileMenu");
+
+  if (!toggle || !menu) {
+    console.error("Menu elements NOT found");
+    return;
+  }
+
+  toggle.addEventListener("click", () => {
+    menu.classList.toggle("active");
+    document.body.classList.toggle("menu-open");
+  });
+
+  menu.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      menu.classList.remove("active");
+      document.body.classList.remove("menu-open");
     });
-}
+  });
+});
