@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Authentic Only</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1 class="logo-full">Authentic Only</h1>
+                <span class="logo-mobile">AO</span>
+                <p>Members Only</p>
+            </div>
+            <nav class="nav">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#shop">Shop</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-search">
+                <input type="text" placeholder="Search...">
+            </div>
+            <div class="header-actions">
+                <a href="#" class="search"><i class="fas fa-search"></i></a>
+                <a href="#" class="login"><i class="fas fa-user"></i> Login</a>
+                <a href="#" class="cart"><i class="fas fa-shopping-bag"></i></a>
+                <div class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="menu-overlay" id="mobileMenu">
+        <nav class="mobile-nav">
+            <a href="index.html">Home</a>
+            <a href="#shop">Shop</a>
+            <a href="#about">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </div>
+
+    <section class="contact-hero">
+        <div class="container">
+            <div class="section-divider">
+                <span>Contact Us</span>
+            </div>
+            <p class="contact-subtitle">We’re here to help with orders, availability, and inquiries.</p>
+        </div>
+    </section>
+
+    <section class="contact-info">
+        <div class="container">
+            <div class="info-cards">
+                <div class="info-card">
+                    <h3>Phone</h3>
+                    <p>+961 70 575896</p>
+                </div>
+                <div class="info-card">
+                    <h3>Email</h3>
+                    <p>authentic_outlet@gmail.com</p>
+                </div>
+                <div class="info-card">
+                    <h3>Instagram</h3>
+                    <p><a href="https://www.instagram.com/authenticonly.outlet" target="_blank" rel="noopener noreferrer">authenticonly.outlet</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-form">
+        <div class="container">
+            <form>
+                <input type="text" name="name" placeholder="Name" required>
+                <input type="tel" name="phone" placeholder="Phone number" required>
+                <textarea name="message" placeholder="Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
