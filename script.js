@@ -15,8 +15,7 @@ if (rightChevron && brandsList) {
     });
 }
 
-// Set active class on Home link
-document.querySelector('.nav-list a[href="#home"]').classList.add('active');
+
 
 
 
@@ -31,23 +30,60 @@ window.addEventListener('scroll', () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  const toggle = document.getElementById("menuToggle");
-  const menu = document.getElementById("mobileMenu");
+  const menuBtn = document.querySelector(".menu-toggle");
+  const mobileDrawer = document.querySelector(".mobile-drawer");
 
-  if (!toggle || !menu) {
-    console.error("Menu elements NOT found");
-    return;
-  }
-
-  toggle.addEventListener("click", () => {
-    menu.classList.toggle("active");
-    document.body.classList.toggle("menu-open");
-  });
-
-  menu.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", () => {
-      menu.classList.remove("active");
-      document.body.classList.remove("menu-open");
+  if (menuBtn && mobileDrawer) {
+    // Toggle drawer on hamburger click
+    menuBtn.addEventListener("click", () => {
+      mobileDrawer.classList.toggle("is-open");
+      const overlay = document.querySelector(".drawer-overlay");
+      if (overlay) {
+        overlay.classList.toggle("is-open");
+      }
     });
-  });
+
+    // Close on close button click
+    const closeBtn = mobileDrawer.querySelector(".drawer-close");
+    if (closeBtn) {
+      closeBtn.addEventListener("click", () => {
+        mobileDrawer.classList.remove("is-open");
+        const overlay = document.querySelector(".drawer-overlay");
+        if (overlay) {
+          overlay.classList.remove("is-open");
+        }
+      });
+    }
+
+    // Close on nav link click
+    mobileDrawer.querySelectorAll(".drawer-nav a").forEach(link => {
+      link.addEventListener("click", () => {
+        mobileDrawer.classList.remove("is-open");
+        const overlay = document.querySelector(".drawer-overlay");
+        if (overlay) {
+          overlay.classList.remove("is-open");
+        }
+      });
+    });
+
+    // Close on overlay click
+    const overlay = document.querySelector(".drawer-overlay");
+    if (overlay) {
+      overlay.addEventListener("click", () => {
+        mobileDrawer.classList.remove("is-open");
+        overlay.classList.remove("is-open");
+      });
+    }
+
+    // Close on clicking outside the drawer
+    document.addEventListener("click", (e) => {
+      if (!mobileDrawer.contains(e.target) && !menuBtn.contains(e.target)) {
+        mobileDrawer.classList.remove("is-open");
+        const overlay = document.querySelector(".drawer-overlay");
+        if (overlay) {
+          overlay.classList.remove("is-open");
+        }
+      }
+    });
+  }
 });
